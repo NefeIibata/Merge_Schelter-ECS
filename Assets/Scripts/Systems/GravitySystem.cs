@@ -9,6 +9,7 @@ namespace Systems
     public class GravitySystem : IEcsRunSystem
     {
         private readonly EcsWorldInject _world = default;
+        private readonly EcsCustomInject<LevelConfiguration> _levelConfig = default;
         private readonly EcsCustomInject<GridData> _gridData = default;
 
         private readonly EcsFilterInject<Inc<PositionComponent, GravityDirectionComponent>> _filter = default;
@@ -16,6 +17,7 @@ namespace Systems
         public void Run(IEcsSystems systems)
         {
             var grid = _gridData.Value;
+            var levelConfig = _levelConfig.Value;
             var movePool = _world.Value.GetPool<MoveToComponent>();
 
             for (int x = 0; x < grid.Width; x++)

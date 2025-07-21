@@ -10,12 +10,13 @@ namespace Systems
     {
         private readonly EcsWorldInject _world = default;
         private readonly EcsCustomInject<GridData> _grid = default;
-        private readonly EcsFilterInject<Inc<SwapRequestComponent>, Exc<BlockerComponent>> _filter = default;
+        private readonly EcsFilterInject<Inc<SwapRequestComponent>, Exc<BlockerComponent, EmptyMarkerComponent>> _filter = default;
 
         public void Run(IEcsSystems systems)
         {
             var requestPool = _filter.Pools.Inc1;
             var blockerPool = _world.Value.GetPool<BlockerComponent>();
+            var emptyPiecesPool = _world.Value.GetPool<EmptyMarkerComponent>();
             var posPool = _world.Value.GetPool<PositionComponent>();
 
             foreach (int entity1 in _filter.Value)
@@ -28,7 +29,7 @@ namespace Systems
                     continue;
                 }
 
-                if (blockerPool.Has(entity2))
+                if (blockerPool.Has(entity2) || emptyPiecesPool.Has(entity2))
                 {
                     requestPool.Del(entity1);
                     continue;

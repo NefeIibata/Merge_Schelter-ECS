@@ -82,7 +82,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 2, y: 1}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 2, y: 2}
@@ -102,7 +102,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 2, y: 5}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 3, y: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 3, y: 2}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 3, y: 3}
@@ -127,7 +127,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 3, y: 4}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 3, y: 5}
@@ -152,7 +152,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 4, y: 3}
     Type: 0
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 55d7c0c4268e24c4d93a9bce9a49bb3c, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 4, y: 4}
@@ -182,7 +182,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 5, y: 3}
     Type: 0
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 55d7c0c4268e24c4d93a9bce9a49bb3c, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 5, y: 4}
@@ -202,27 +202,27 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 6, y: 1}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 6, y: 2}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 6, y: 3}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 6, y: 4}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 6, y: 5}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 7, y: 0}
@@ -242,7 +242,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 7, y: 3}
     Type: 0
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 55d7c0c4268e24c4d93a9bce9a49bb3c, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 7, y: 4}
@@ -272,7 +272,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 8, y: 3}
     Type: 0
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 55d7c0c4268e24c4d93a9bce9a49bb3c, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 8, y: 4}
@@ -297,7 +297,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 9, y: 2}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 9, y: 3}
@@ -307,7 +307,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 9, y: 4}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 9, y: 5}
@@ -322,7 +322,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 10, y: 1}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 10, y: 2}
@@ -342,7 +342,7 @@ MonoBehaviour:
     Durability: 0
   - Position: {x: 10, y: 5}
     Type: 2
-    InitialPiece: {fileID: 11400000, guid: 318ab078d129ec447beb64ff9fb3cfeb, type: 2}
+    InitialPiece: {fileID: 11400000, guid: 5a15239b1bed30245b6b095c176b29dd, type: 2}
     GravityDirection: {x: 0, y: -1}
     Durability: 0
   - Position: {x: 11, y: 0}

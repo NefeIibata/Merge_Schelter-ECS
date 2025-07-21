@@ -11,7 +11,7 @@ namespace Systems
     {
         private readonly EcsWorldInject _world = default;
         private readonly EcsCustomInject<GridData> _grid = default;
-        private readonly EcsFilterInject<Inc<PieceComponent>> _pieceFilter = default;
+        private readonly EcsFilterInject<Inc<PieceComponent>, Exc<BlockerComponent>> _pieceFilter = default;
 
         private readonly List<MatchPattern> _matchPatterns;
 

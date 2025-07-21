@@ -25,7 +25,7 @@ namespace Global
             var gridData = new GridData(_levelConfig.Width, _levelConfig.Height);
 
             _systems
-                .Add(new LevelInitSystem(_levelConfig))
+                .Add(new LevelInitSystem())
 
                 .Add(new InputSystem())
                 .Add(new SwapSystem())
@@ -40,6 +40,7 @@ namespace Global
                 .Add(new DestroySystem())
 
                 .Inject(_gameConfig)
+                .Inject(_levelConfig)
                 .Inject(gridData)
 
                 .Add(new EcsWorldDebugSystem())

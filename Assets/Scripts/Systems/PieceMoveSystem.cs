@@ -6,7 +6,7 @@ namespace Systems
 {
     public class PieceMoveSystem : IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<MoveToComponent, PositionComponent>, Exc<BlockerComponent>> _filter = default;
+        private readonly EcsFilterInject<Inc<MoveToComponent, PositionComponent>, Exc<BlockerComponent, EmptyMarkerComponent>> _filter = default;
 
         public void Run(IEcsSystems systems)
         {

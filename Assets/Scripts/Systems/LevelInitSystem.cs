@@ -9,28 +9,18 @@ namespace Systems
     public class LevelInitSystem : IEcsInitSystem
     {
         private readonly EcsWorldInject _world = default;
+        private readonly EcsCustomInject<LevelConfiguration> _levelConfig = default;
         private readonly EcsCustomInject<GameConfig> _gameConfig = default;
         private readonly EcsCustomInject<GridData> _gridData = default;
-
-        private readonly LevelConfiguration _levelConfig;
-
-        public LevelInitSystem(LevelConfiguration levelConfig)
-        {
-            _levelConfig = levelConfig;
-        }
 
         public void Init(IEcsSystems systems)
         {
             var grid = _gridData.Value;
 
-            foreach (var tileData in _levelConfig.Tiles)
+            var pieceParent = new GameObject("GridPices");
+
+            foreach (var tileData in _levelConfig.Value.Tiles)
             {
-
-                if (tileData.Type == TileType.Empty)
-                {
-                    continue;
-                }
-
                 int entity = _world.Value.NewEntity();
 
                 EcsPackedEntity packedEntity = _world.Value.PackEntity(entity);
@@ -42,12 +32,13 @@ namespace Systems
                 GameObject pieceGO = null;
                 var pieceType = tileData.InitialPiece;
 
+                ref var piece = ref _world.Value.GetPool<PieceComponent>().Add(entity);
+
                 if (tileData.Type == TileType.Available)
                 {
                     ref var gravity = ref _world.Value.GetPool<GravityDirectionComponent>().Add(entity);
                     gravity.Direction = tileData.GravityDirection;
 
-                    ref var piece = ref _world.Value.GetPool<PieceComponent>().Add(entity);
 
                     if (pieceType.TypeName == "Random")
                     {
@@ -56,7 +47,6 @@ namespace Systems
 
                     piece.Type = pieceType;
 
-                    pieceGO = Object.Instantiate(piece.Type.Prefab);
                 }
                 else if (tileData.Type == TileType.Blocker)
                 {
@@ -67,11 +57,17 @@ namespace Systems
 
                     ref var blockerProps = ref _world.Value.GetPool<BlockerPropertiesComponent>().Add(entity);
 
-                    ref var piece = ref _world.Value.GetPool<PieceComponent>().Add(entity);
                     piece.Type = pieceType;
-                    pieceGO = Object.Instantiate(piece.Type.Prefab);
 
                 }
+                else if (tileData.Type == TileType.Empty)
+                {
+                    _world.Value.GetPool<EmptyMarkerComponent>().Add(entity);
+                    piece.Type = pieceType;
+                }
+
+                pieceGO = Object.Instantiate(piece.Type.Prefab, pieceParent.transform);
+
 
                 if (pieceGO != null)
                 {
