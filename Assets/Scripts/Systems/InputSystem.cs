@@ -18,9 +18,8 @@ namespace Systems
             if (!Input.GetMouseButtonDown(0))
                 return;
 
-            var world = systems.GetWorld();
-            var selectedPool = world.GetPool<SelectedComponent>();
-            var swapPool = world.GetPool<SwapRequestComponent>();
+            var selectedPool = _world.Value.GetPool<SelectedComponent>();
+            var swapPool = _world.Value.GetPool<SwapRequestComponent>();
 
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var gridPos = new Vector2Int(

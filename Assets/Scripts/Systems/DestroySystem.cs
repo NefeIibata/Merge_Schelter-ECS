@@ -7,12 +7,12 @@ namespace Systems
 {
     public class DestroySystem : IEcsRunSystem
     {
+        private readonly EcsWorldInject _world = default;
         private readonly EcsFilterInject<Inc<DestroyComponent>> _filter = default;
 
         public void Run(IEcsSystems systems)
         {
-            var world = systems.GetWorld();
-            var viewPool = world.GetPool<ViewComponent>();
+            var viewPool = _world.Value.GetPool<ViewComponent>();
 
             foreach (int entity in _filter.Value)
             {
@@ -20,7 +20,7 @@ namespace Systems
                 {
                     Object.Destroy(viewPool.Get(entity).Transform.gameObject);
                 }
-                world.DelEntity(entity);
+                _world.Value.DelEntity(entity);
             }
         }
     }

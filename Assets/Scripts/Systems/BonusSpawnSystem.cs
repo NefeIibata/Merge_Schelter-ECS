@@ -7,13 +7,13 @@ namespace Systems
 {
     public class BonusSpawnSystem : IEcsRunSystem
     {
+        private readonly EcsWorldInject _world = default;
         private readonly EcsFilterInject<Inc<SpawnBonusRequestComponent>> _filter = default;
 
         public void Run(IEcsSystems systems)
         {
-            var world = systems.GetWorld();
             var requestPool = _filter.Pools.Inc1;
-            var piecePool = world.GetPool<PieceComponent>();
+            var piecePool = _world.Value.GetPool<PieceComponent>();
 
             foreach (var entity in _filter.Value)
             {
@@ -22,9 +22,9 @@ namespace Systems
 
                 piece.Type = request.BonusType;
 
-                if (world.GetPool<ViewComponent>().Has(entity))
+                if (_world.Value.GetPool<ViewComponent>().Has(entity))
                 {
-                    ref var view = ref world.GetPool<ViewComponent>().Get(entity);
+                    ref var view = ref _world.Value.GetPool<ViewComponent>().Get(entity);
                     Object.Destroy(view.Transform.gameObject);
                     var newViewGO = Object.Instantiate(piece.Type.Prefab, view.Transform.position, Quaternion.identity);
                     view.Transform = newViewGO.transform;

@@ -9,6 +9,7 @@ namespace Systems
 {
     public class MatchDetectionSystem : IEcsRunSystem
     {
+        private readonly EcsWorldInject _world = default;
         private readonly EcsCustomInject<GridData> _grid = default;
         private readonly EcsFilterInject<Inc<PieceComponent>> _pieceFilter = default;
 
@@ -17,8 +18,6 @@ namespace Systems
         private readonly List<int> _horizontalMatch = new List<int>();
         private readonly List<int> _verticalMatch = new List<int>();
         private readonly HashSet<int> _checkedEntities = new HashSet<int>();
-
-        private EcsWorld _world;
 
         public MatchDetectionSystem(List<MatchPattern> patterns)
         {
@@ -29,9 +28,8 @@ namespace Systems
 
         public void Run(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-            var piecePool = _world.GetPool<PieceComponent>();
-            var matchPool = _world.GetPool<MatchComponent>();
+            var piecePool = _world.Value.GetPool<PieceComponent>();
+            var matchPool = _world.Value.GetPool<MatchComponent>();
             _checkedEntities.Clear();
 
             foreach (int entity in _pieceFilter.Value)
@@ -53,7 +51,7 @@ namespace Systems
 
                         if (pattern.BonusToSpawn != null)
                         {
-                            ref var request = ref _world.GetPool<SpawnBonusRequestComponent>().Add(entity);
+                            ref var request = ref _world.Value.GetPool<SpawnBonusRequestComponent>().Add(entity);
                             request.BonusType = pattern.BonusToSpawn;
                         }
 
@@ -68,7 +66,7 @@ namespace Systems
             _horizontalMatch.Clear();
             _verticalMatch.Clear();
 
-            var posPool = _world.GetPool<PositionComponent>();
+            var posPool = _world.Value.GetPool<PositionComponent>();
             var startPos = posPool.Get(startEntity).Value;
 
             _horizontalMatch.Add(startEntity);
@@ -89,7 +87,7 @@ namespace Systems
                 if (nextPos.x < 0 || nextPos.x >= grid.Width || nextPos.y < 0 || nextPos.y >= grid.Height)
                     break;
 
-                if (grid.Entities[nextPos.x, nextPos.y].Unpack(_world, out int nextEntity) &&
+                if (grid.Entities[nextPos.x, nextPos.y].Unpack(_world.Value, out int nextEntity) &&
                     piecePool.Has(nextEntity) && 
                     piecePool.Get(nextEntity).Type == pieceType)
                 {

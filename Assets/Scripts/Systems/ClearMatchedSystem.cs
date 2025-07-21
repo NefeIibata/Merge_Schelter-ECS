@@ -6,12 +6,12 @@ namespace Systems
 {
     public class ClearMatchedSystem : IEcsRunSystem
     {
+        private readonly EcsWorldInject _world = default;
         private readonly EcsFilterInject<Inc<MatchComponent>> _matchFilter = default;
 
         public void Run(IEcsSystems systems)
         {
-            var world = systems.GetWorld();
-            var destroyPool = world.GetPool<DestroyComponent>();
+            var destroyPool = _world.Value.GetPool<DestroyComponent>();
             foreach (int entity in _matchFilter.Value)
             {
                 if (!destroyPool.Has(entity))
