@@ -12,12 +12,16 @@ namespace Systems
         public void Run(IEcsSystems systems)
         {
             var destroyPool = _world.Value.GetPool<DestroyComponent>();
+            var bonusPool = _world.Value.GetPool<BonusComponent>();
+            var bonusRequestPool = _world.Value.GetPool<SpawnBonusRequestComponent>();
+
             foreach (int entity in _matchFilter.Value)
             {
+                if (bonusPool.Has(entity) || bonusRequestPool.Has(entity))
+                    continue;
+
                 if (!destroyPool.Has(entity))
-                {
                     destroyPool.Add(entity);
-                }
             }
         }
     }

@@ -25,8 +25,20 @@ namespace Systems
                 if (_world.Value.GetPool<ViewComponent>().Has(entity))
                 {
                     ref var view = ref _world.Value.GetPool<ViewComponent>().Get(entity);
-                    Object.Destroy(view.Transform.gameObject);
+
                     var newViewGO = Object.Instantiate(piece.Type.Prefab, view.Transform.position, Quaternion.identity);
+
+                    if (_world.Value.GetPool<BonusComponent>().Has(entity))
+                    {
+                        _world.Value.GetPool<BonusComponent>().Add(entity);
+                    }
+
+                    if (_world.Value.GetPool<MatchComponent>().Has(entity))
+                    {
+                        _world.Value.GetPool<MatchComponent>().Del(entity);
+                    }
+
+                    Object.Destroy(view.Transform.gameObject);
                     view.Transform = newViewGO.transform;
                 }
 
